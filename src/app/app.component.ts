@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
+  selectedSection = 'Recipes';
+
+  onNavigationChanged(selectedSection: string) {
+    console.log(selectedSection);
+    this.selectedSection = selectedSection;
+  }
 }

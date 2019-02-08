@@ -1,10 +1,12 @@
-<app-header></app-header>
+<app-header (navigationChanged)="onNavigationChanged($event)"></app-header>
 
 <div class="container">
   <div class="row">
     <div class="col-mid-12">
-      <app-recipes></app-recipes>
-      <app-shopping-list></app-shopping-list>
+      <app-recipes *ngIf="selectedSection === 'Recipes'; else shoppingList"></app-recipes>
+      <ng-template #shoppingList>
+        <app-shopping-list></app-shopping-list>
+      </ng-template>
     </div>
   </div>
 </div>
