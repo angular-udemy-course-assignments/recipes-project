@@ -7,10 +7,4 @@ import { Component } from '@angular/core';
   providers: []
 })
 export class AppComponent {
-  selectedSection = 'Recipes';
-
-  onNavigationChanged(selectedSection: string) {
-    console.log(selectedSection);
-    this.selectedSection = selectedSection;
-  }
 }
