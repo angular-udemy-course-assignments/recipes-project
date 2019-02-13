@@ -8,8 +8,10 @@
 
     <div class="navbar-default">
       <ul class="nav navbar-nav">
-        <li *ngFor="let nav of navigation">
-          <a href="#" (click)="changeSection(nav)">{{nav}}</a>
+        <li routerLinkActive="active">
+          <a [routerLink]="['recipes']">Recipes</a>
+        <li routerLinkActive="active">
+          <a [routerLink]="['shopping-list']">Shopping List</a>
         </li>
       </ul>
 
