@@ -12,7 +12,7 @@ import {Subscription} from 'rxjs';
 export class ShoppingEditComponent implements OnInit, OnDestroy {
   @ViewChild('f') ingForm: NgForm;
   editSubscription: Subscription;
-  indexToUpdate: number;
+  selectedIndex: number;
   editMode = false;
 
   constructor(private shoppingListService: ShoppingListService) {
@@ -24,7 +24,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
         const ingredient = this.shoppingListService.getIngredient(index);
         console.log(ingredient);
         this.editMode = true;
-        this.indexToUpdate = index;
+        this.selectedIndex = index;
         this.ingForm.setValue({
           name: ingredient.name,
           amount: ingredient.amount
@@ -32,14 +32,26 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
       });
   }
 
-  addIngredient(control: NgForm) {
+  onSubmit(control: NgForm) {
     const value = control.value;
     const newIng = new Ingredient(value.name, value.amount);
     if (this.editMode) {
-      this.shoppingListService.updateIngredient(this.indexToUpdate, newIng);
+      this.shoppingListService.updateIngredient(this.selectedIndex, newIng);
     } else {
       this.shoppingListService.addIngredient(newIng);
     }
+    this.resetForm();
+  }
+
+  onDelete() {
+    this.shoppingListService.deleteIngredient(this.selectedIndex);
+    this.resetForm();
+
+  }
+
+  private resetForm() {
+    this.editMode = false;
+    this.ingForm.reset();
   }
 
   ngOnDestroy(): void {
