@@ -8,6 +8,7 @@
                  id="name"
                  name="name"
                  ngModel
+                 required
                  class="form-control">
         </div>
         <div class="col-sm-2 form-group">
@@ -16,12 +17,15 @@
                  id="amount"
                  name="amount"
                  ngModel
+                 required
+                 pattern="^[1-9]+[0-9]*$"
                  class="form-control">
         </div>
       </div>
       <div class="row manage-ingredients">
         <div class="col-xs-12">
           <button class="btn btn-success"
+                  [disabled]="f.invalid"
                   type="submit">
             Add
           </button>
