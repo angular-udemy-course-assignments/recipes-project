@@ -26,9 +26,7 @@
         <div class="col-xs-12">
           <button class="btn btn-success"
                   [disabled]="f.invalid"
-                  type="submit">
-            Add
-          </button>
+                  type="submit">{{editMode ? "Update" : "Add"}}</button>
           <button class="btn btn-danger" type="button">Delete</button>
           <button class="btn btn-primary" type="button">Clear</button>
         </div>
