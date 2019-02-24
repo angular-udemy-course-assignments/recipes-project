@@ -42,6 +42,11 @@ export class RecipeService {
     return this.recipes[id];
   }
 
+  deleteRecipe(index: number) {
+    this.recipes.splice(index, 1);
+    this.notifyChange();
+  }
+
   private notifyChange() {
     this.recipeChanged.next(this.recipes);
   }
