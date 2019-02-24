@@ -3,23 +3,31 @@ import {Ingredient} from '../shared/ingredient.model';
 
 export class RecipeService {
   private recipes: Recipe[] = [
-    new Recipe(1, 'A test recipe',
+    new Recipe('A test recipe',
       'Simply a test',
       'https://www.cityline.tv/wp-content/uploads/2017/12/salmon-and-vegetables-plate.jpg',
       [new Ingredient('meat', 1),
         new Ingredient('salad', 5)]
     ),
-    new Recipe(2, 'Another test recipe',
+    new Recipe('Another test recipe',
       'Again a test',
       'https://www.cityline.tv/wp-content/uploads/2017/12/salmon-and-vegetables-plate.jpg',
       [new Ingredient('tomatoes', 2),
         new Ingredient('buns', 3)]),
-    new Recipe(3, 'Third test recipe',
+    new Recipe('Third test recipe',
       'Simply a test',
       'https://www.cityline.tv/wp-content/uploads/2017/12/salmon-and-vegetables-plate.jpg',
       [new Ingredient('steak', 1),
         new Ingredient('carrots', 5)])
   ];
+
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+  }
+
+  updateRecipe(index: number, newRecipe: Recipe) {
+    this.recipes[index] = newRecipe;
+  }
 
   getRecipes(): Recipe[] {
     // return a copy of the array
@@ -27,7 +35,7 @@ export class RecipeService {
   }
 
   getRecipe(id: number): Recipe {
-    return this.recipes.find(r => r.id === id);
+    return this.recipes[id];
   }
 
 }
