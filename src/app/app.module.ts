@@ -14,6 +14,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { NoRecipeSelectedComponent } from './recipes/recipe-list/no-recipe-selected/no-recipe-selected.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import {RecipeService} from './recipes/recipe.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
