@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
-import {FormArray, FormControl, FormControlName, FormGroup} from '@angular/forms';
+import {FormArray, FormControl, FormControlName, FormGroup, Validators} from '@angular/forms';
 import {RecipeService} from '../recipe.service';
 import {ShoppingListService} from '../../shopping-list/shopping-list.service';
 
@@ -55,17 +55,18 @@ export class RecipeEditComponent implements OnInit {
       editRecipe.ingredients
         .forEach((ing) => {
           const ingGroup = new FormGroup({
-            'name': new FormControl(ing.name),
-            'amount': new FormControl(ing.amount)
+            'name': new FormControl(ing.name, Validators.required),
+            'amount': new FormControl(ing.amount,
+              [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)])
           });
           ingredients.push(ingGroup);
         });
     }
 
     this.recipeForm = new FormGroup({
-      'name': new FormControl(recipeName),
-      'imageUrl': new FormControl(imageUrl),
-      'description': new FormControl(description),
+      'name': new FormControl(recipeName, Validators.required),
+      'imageUrl': new FormControl(imageUrl, Validators.required),
+      'description': new FormControl(description, Validators.required),
       'ingredients': ingredients
     });
   }
