@@ -18,6 +18,7 @@
             <input class="form-control"
                    type="text"
                    formControlName="name"
+                   #name
                    id="name">
           </div>
         </div>
@@ -29,13 +30,16 @@
             <input class="form-control"
                    type="text"
                    formControlName="imagePath"
+                   #imagePath
                    id="imagePath">
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <img src="" alt="" class="img-responsive">
+          <img [src]="imagePath.value"
+               [alt]="name.value"
+               class="img-responsive">
         </div>
       </div>
       <div class="row">
