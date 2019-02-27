@@ -15,6 +15,8 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { NoRecipeSelectedComponent } from './recipes/recipe-list/no-recipe-selected/no-recipe-selected.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import {RecipeService} from './recipes/recipe.service';
+import {HttpModule} from '@angular/http';
+import {DataStorageService} from './shared/data-storage.service';
 
 @NgModule({
   declarations: [
@@ -34,9 +36,10 @@ import {RecipeService} from './recipes/recipe.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpModule,
     ReactiveFormsModule
   ],
-  providers: [RecipeService],
+  providers: [RecipeService, DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

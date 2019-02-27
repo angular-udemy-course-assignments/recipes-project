@@ -50,6 +50,5 @@ export class RecipeService {
   private notifyChange() {
     this.recipeChanged.next(this.recipes);
   }
-
 }
 
