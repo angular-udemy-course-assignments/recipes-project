@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-6n col-md-offset-2 col-sm-offset-1">
+    <form (ngSubmit)="onSignin(f)" #f="ngForm">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email"
+               id="email"
+               name="email"
+               required
+               email
+               ngModel
+               class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password"
+               id="password"
+               name="password"
+               ngModel
+               minlength="6"
+               required
+               class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Sign in</button>
+    </form>
+  </div>
+</div>
