@@ -19,4 +19,11 @@ export class DataStorageService {
         map(((response: Response) => response.json())
         ));
   }
+
+  getRecipes() {
+    return this.http.get(this.url)
+      .pipe(
+        map((response: Response) => response.json()
+        ));
+  }
 }

@@ -16,11 +16,11 @@ export class RecipeService {
       'https://www.cityline.tv/wp-content/uploads/2017/12/salmon-and-vegetables-plate.jpg',
       [new Ingredient('tomatoes', 2),
         new Ingredient('buns', 3)]),
-    new Recipe('Third test recipe',
-      'Simply a test',
-      'https://www.cityline.tv/wp-content/uploads/2017/12/salmon-and-vegetables-plate.jpg',
-      [new Ingredient('steak', 1),
-        new Ingredient('carrots', 5)])
+    // new Recipe('Third test recipe',
+    //   'Simply a test',
+    //   'https://www.cityline.tv/wp-content/uploads/2017/12/salmon-and-vegetables-plate.jpg',
+    //   [new Ingredient('steak', 1),
+    //     new Ingredient('carrots', 5)])
   ];
 
   addRecipe(recipe: Recipe) {
@@ -44,6 +44,11 @@ export class RecipeService {
 
   deleteRecipe(index: number) {
     this.recipes.splice(index, 1);
+    this.notifyChange();
+  }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
     this.notifyChange();
   }
 
