@@ -16,9 +16,11 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a routerLink="signup">Register</a></li>
-        <li><a routerLink="signin">Login</a></li>
-        <li class="dropdown" appDropdown>
+        <ng-template [ngIf]="!authService.isAuthenticated()">
+          <li><a routerLink="signup">Register</a></li>
+          <li><a routerLink="signin">Login</a></li>
+        </ng-template>
+        <li *ngIf="authService.isAuthenticated()" class="dropdown" appDropdown>
           <a role="button" class="dropdown-toggle">
             Manage <span class="caret"></span>
           </a>
