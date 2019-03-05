@@ -7,6 +7,7 @@ import {NoRecipeSelectedComponent} from './recipe-list/no-recipe-selected/no-rec
 import {RecipeEditComponent} from './recipe-edit/recipe-edit.component';
 import {RecipesComponent} from './recipes.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {RecipesRoutingModule} from './recipes-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {ReactiveFormsModule} from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RecipesRoutingModule
   ]
 })
 export class RecipesModule {
