@@ -49,7 +49,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
 
   }
 
-  private resetForm() {
+  resetForm() {
     this.editMode = false;
     this.ingForm.reset();
   }

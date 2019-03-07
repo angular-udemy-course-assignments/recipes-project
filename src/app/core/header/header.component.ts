@@ -26,7 +26,7 @@ export class HeaderComponent {
       });
   }
 
-  private isAuthenticated() {
+  isAuthenticated() {
     return this.authService.isAuthenticated();
   }
 }
