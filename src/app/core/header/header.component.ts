@@ -25,4 +25,8 @@ export class HeaderComponent {
         this.recipeService.setRecipes(recipes);
       });
   }
+
+  private isAuthenticated() {
+    return this.authService.isAuthenticated();
+  }
 }
